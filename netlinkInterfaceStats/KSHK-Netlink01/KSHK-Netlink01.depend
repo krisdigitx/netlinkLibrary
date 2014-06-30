@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1404139986 source:/home/kshk/ic++/KSHK-Netlink01/main.cpp
+	<iostream>
+	<stdio.h>
+	<netlink/netlink.h>
+	<netlink/route/link.h>
+	<unistd.h>
+
