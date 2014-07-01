@@ -9,11 +9,26 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     //cout << "Hello world!" << endl;
+    int netlinkStat();
 
     //if (argc != 2){
     //    printf("usage %s interface\n ", argv[0]);
     //}
+    /*
+    int temp=0;
 
+    unsigned int microseconds;
+    while (temp !=1){
+        netlinkStat();
+        usleep(1);
+    }
+    */
+    netlinkStat();
+
+    return 0;
+}
+
+int netlinkStat(){
     int ret = 0;
     struct nl_handle *handle;
 
@@ -66,7 +81,10 @@ int main(int argc, char *argv[])
     printf("packets sent %llu\n", rtnl_link_get_stat(link, RTNL_LINK_TX_PACKETS));
     printf("packets received %llu\n",rtnl_link_get_stat(link, RTNL_LINK_RX_PACKETS));
 
+    printf("bytes sent %llu\n", rtnl_link_get_stat(link, RTNL_LINK_TX_BYTES));
+    printf("bytes received %llu\n", rtnl_link_get_stat(link, RTNL_LINK_RX_BYTES));
 
+    printf("%llu\n", rtnl_link_get_addr(link));
 
 
     //give the object back to the cache
@@ -81,5 +99,5 @@ int main(int argc, char *argv[])
     error_handle:
         return ret;
     */
-    return 0;
+    //return 0;
 }
